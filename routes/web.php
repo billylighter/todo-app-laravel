@@ -36,7 +36,8 @@ Route::resource('todos', TodoController::class)
 
 Route::get('/feed', function (){
     return view('todos.index', [
-        'todos' => Todo::with('user')->latest()->get()
+        'todos' => Todo::with('user')->latest()->get(),
+        'title' => 'Feed of all todos'
     ]);
 } )->name('feed');
 

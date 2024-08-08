@@ -2,7 +2,7 @@
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
 
         <h1 class="mb-5 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
-            {{__('TODOS')}}
+            {{$title}}
         </h1>
 
         <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">

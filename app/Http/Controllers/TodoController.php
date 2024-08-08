@@ -20,6 +20,7 @@ class TodoController extends Controller
     {
         return view('todos.index', [
             'todos' => Todo::where('user_id', Auth::id())->latest()->get(),
+            'title' => 'My todos'
         ]);
     }
 
