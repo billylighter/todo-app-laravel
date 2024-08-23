@@ -43,7 +43,8 @@ class TodoController extends Controller
 
         $request->user()->todos()->create($validated);
 
-        return redirect(route('todos.index'));
+        return redirect(route('todos.index'))->
+        with('success', 'Todo was added successfully!');
     }
 
     /**
@@ -86,12 +87,13 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Todo $todo)
+    public function destroy(Request $request, Todo $todo)
     {
         Gate::authorize('delete', $todo);
 
         $todo->delete();
 
-        return redirect(route('todos.index'));
+        return redirect($request->headers->get('referer'))
+            ->with('success', 'Todo was removed successfully!');
     }
 }
